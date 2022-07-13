@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Rock Paper Scissors</title>
+<link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+<center>
+      <h1><i>Rock Paper Scissoron</i></h1>
+
+    <form action="./predict" method="POST" enctype="multipart/form-data">
+     <table>
+     <tr>
+         <td>
+         <label for="upload_img" class="upload-label">
+            Choose...
+        </label>
+<!--        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">-->
+             <input id="upload_img" name="file" type="file"  onchange="loadFile(event)" >
+         </td>
+     </tr>
+          <tr>
+             <td>
+                 <p style="margin-block-start: 5px;
+margin-block-end: 0px;">Uploaded Image</p>
+                 <img id="view_uploaded_img" width="200" style="padding: 10px;"/>
+             </td>
+         </tr>
+
+
+         <tr>
+
+          <td colspan="3">
+             <input  id="btn" type="submit" value="PREDICT" />
+         </td>
+        </tr>
+         <tr>
+             <td>
+                   <p> Prediction : {{pred}}</p>
+             </td>
+         </tr>
+
+     </table>
+<!--    <div id="input_boxes" style="display: block;">-->
+<!--    <label for="upload_img">Upload Image</label>-->
+<!--    <input id="upload_img" type="file" onchange="loadFile(event)" ><br> -->
+<!--</div>-->
+<!--<button class="sub_btn" onclick="submit()" type="submit">Submit</button>-->
+<!--<br>-->
+<script>
+    var loadFile = function(event) {
+        var output_img = document.getElementById('view_uploaded_img');
+        output_img.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+</form>
+    </center>
+</body>
+</html>
